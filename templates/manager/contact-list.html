@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex flex-col justify-center item-center bg-slate-800 text-white font-bold">
+    <h1>ADD CONTACT</h1>
+    <form hx-post="{% url 'create' %}" hx-swap="outerHTML" hx-target="#contact-list" id="create-contact">
+        {{ form.as_p }}
+        <button class="btn btn-primary">ADD</button>
+    </form>
+
+    <h1>CONTACT LIST</h1>
+    <div>
+        {% if contacts %}
+        <ul id="contact-list">
+            { % for contact in contacts %}
+                {% include 'manager/partials/contact-item.html' %}
+            { % endfor %}
+        </ul>        
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

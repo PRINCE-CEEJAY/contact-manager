@@ -1,0 +1,5 @@
+<form hx-post="{% url 'update' contact.id%}" hx-swap="outerHTML" hx-target="#create-contact">
+    <p>Update {{ contact.title }}</p>
+    {{ form }}
+    <button>Save</button>
+</form>
