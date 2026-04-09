@@ -1,5 +1,5 @@
-<form hx-post="{% url 'update' contact.id%}" hx-swap="outerHTML" hx-target="#create-contact">
-    <p>Update {{ contact.title }}</p>
-    {{ form }}
+<form hx-post="{% url 'update' contact.id %}" hx-swap="outerHTML" hx-target="#contact-list" hx-on="htmx:afterRequest: closeModal()">
+    <p class="italic">Update {{ contact.name }} ?</p>
+    {{ form.as_p }}
     <button>Save</button>
 </form>

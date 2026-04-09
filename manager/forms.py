@@ -1,7 +1,7 @@
 from django import forms
-from .models import ManagerModel
+from .models import Manager
 
 class ManagerForm(forms.ModelForm):
     class Meta:
-        model = ManagerModel
+        model = Manager
         fields = ['name', 'email', 'bio']

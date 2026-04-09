@@ -1,20 +1,30 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT MANAGER</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <nav>NAVBAR</nav>
-    <main class="flex flex-col items-center min-h-screen bg-amber-800 text-white font-bold">
+    <main class="flex flex-col items-center min-h-screen font-bold">
         {% block content %}      
         {% endblock %}            
         </main>
+        
+        <!-- GLOBAL MODAL -->
+         <div id="modal" class="fixed inset-0 hidden bg-black/95 items-center justify-center z-1000 w-full">
+
+            <!-- MODAL BODY -->
+            <div id="modal-content" class="relative p-6 rounded-2xl transition-all duration-300 opacity-95 scale-55 text-white">
+                <button hx-on:click="closeModal()" class="absolute right-2 top-2 btn btn-secondary">Close</button>              
+            </div>
+         </div>
 
     <footer>All rights reserved @ PRINCE CEEJAY 2026</footer>
     
-    <script src="https://cdn.jsdelivr.com/npm/daisyui@4"></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
@@ -23,5 +33,6 @@
             event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
         });
         </script>
+        <script src="{% static 'scripts/modal.js' %}"></script>
 </body>
 </html>

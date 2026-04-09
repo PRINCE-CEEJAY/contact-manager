@@ -1,0 +1,27 @@
+<li>
+    <div class="m-2">
+        <h1>{{ contact.name }}</h1>
+       <h3>Email: {{ contact.email }} </h3>
+       <p class="italic">{{ contact.bio }}</p>
+       <hr/>
+    </div>
+    <div class="flex justify-evenly">
+        <form
+        hx-get="{% url 'update' contact.id %}"
+        hx-swap="innerHTML"
+        hx-target="#modal-content"
+        hx-on:click="openModal()"
+        >
+            <button class="btn btn-primary">Edit</button>
+        </form>
+    
+        <form
+        hx-delete="{% url 'delete' contact.id %}"
+        hx-swap="innerHTML"
+        hx-target="#modal-content"
+        >
+        <button class="btn btn-secondary"
+        >Delete</button>        
+        </form>
+    </div>
+</li>

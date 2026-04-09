@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class ManagerModel(models.Model):
+class Manager(models.Model):
     name = models.CharField()
     email = models.EmailField()
     bio = models.TextField()

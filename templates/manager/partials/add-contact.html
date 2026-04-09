@@ -1,0 +1,7 @@
+<div>
+<h1>CREATE A CONTACT</h1>
+<form hx-post="{% url 'list_create' %}" hx-swap="afterbegin" hx-target="#contact-list" hx-on="htmx:afterRequest: closeModal()">
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">CREATE</button>
+</form>
+</div>
