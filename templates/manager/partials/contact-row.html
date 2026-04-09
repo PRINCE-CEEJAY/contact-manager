@@ -1,15 +1,15 @@
-<li id="contact-{{ contact.id }}">
-    <div class="m-2">
+<li id="contact-{{ contact.id }}" class="border-2 m-2 p-2 rounded-md">
+    <div class="m-2 flex flex-col justify-center items-center">
         <h1>{{ contact.name }}</h1>
-       <h3>Email: {{ contact.email }} </h3>
+       <h2>Email: {{ contact.email }} </h2>
        <p class="italic">{{ contact.bio }}</p>
-       <hr/>
+        <p class="italic">Date: {{ contact.date_created }}</p>
     </div>
     <div class="flex justify-evenly">
         <form
         hx-get="{% url 'update' contact.id %}"
         hx-swap="innerHTML"
-        hx-target="#modal-content"
+        hx-target="#modal-body"
         hx-on:click="openModal()"
         >
             <button class="btn btn-primary">Edit</button>

@@ -9,7 +9,7 @@ function openModal(){
 
     setTimeout(()=>{
         content.classList.remove('scale-95', 'opacity-95')
-    }, 50)
+    }, 10)
     
 }
 function closeModal(){
@@ -18,7 +18,7 @@ function closeModal(){
     setTimeout(()=>{
         modal.classList.add('hidden')
         modal.classList.remove('flex')
-    })
+    }, 200)
 }
 
 modal.addEventListener('click', (e)=>{

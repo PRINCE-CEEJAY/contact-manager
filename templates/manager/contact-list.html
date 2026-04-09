@@ -4,17 +4,21 @@
 <div>
 
    <button
-   class="btn btn-primary" 
+   class="btn btn-primary mb-2" 
    hx-get="{% url 'get_contact_form' %}"
    hx-swap="innerHTML"
-   hx-target="#modal-content"
+   hx-target="#modal-body"
    hx-on:click="openModal()" 
    >Add Contact</button>
-   
+  
+   <hr/>   
+   <hr/>   
+
+
     <h1>CONTACT LIST</h1>
-    <div>
+    <div class="mt-4">
         {% if contacts %}
-        <ul id="contact-list">
+        <ul id="contact-list" class="grid grid-cols-3">
             {% for contact in contacts %}
                 {% include 'manager/partials/contact-row.html' %}
             {% endfor %}
