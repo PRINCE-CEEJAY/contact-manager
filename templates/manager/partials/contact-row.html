@@ -1,4 +1,4 @@
-<li>
+<li id="contact-{{ contact.id }}">
     <div class="m-2">
         <h1>{{ contact.name }}</h1>
        <h3>Email: {{ contact.email }} </h3>
@@ -17,8 +17,9 @@
     
         <form
         hx-delete="{% url 'delete' contact.id %}"
-        hx-swap="innerHTML"
-        hx-target="#modal-content"
+        hx-confirm="Are you sure to delete {{ contact.name }} ?"
+        hx-swap="outerHTML"
+        hx-target="#contact-{{ contact.id }}"    
         >
         <button class="btn btn-secondary"
         >Delete</button>        

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Manager
 from .forms import ManagerForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 @login_required(login_url='/admin/')
 def create(request):
@@ -42,4 +43,4 @@ def update(request, id):
 def delete(request, id):
     contact = get_object_or_404(Manager, id=id, user=request.user)
     contact.delete()
-    return render(request, 'manager/partials/contact-row.html', {'contact': ''})
+    return HttpResponse("")
