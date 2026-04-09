@@ -8,26 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <nav>NAVBAR</nav>
-    <main class="flex flex-col items-center min-h-screen font-bold">
+    {% include 'globals/navbar.html' %}
+    <main class="flex flex-col items-center min-h-screen font-bold p-3">
         {% block content %}      
         {% endblock %}            
-        </main>
-        
+        </main>    
+
         <!-- GLOBAL MODAL -->
-         <div id="modal" class="fixed inset-0 hidden bg-black/95 items-center justify-center z-1000 w-full">
+       {% include 'globals/modal.html' %}
 
-            <div id="modal-content" class="relative p-6 rounded-2xl transition-all duration-300 opacity-95 scale-95 text-white">
-
-                <!-- CLOSE BUTTON -->
-                <button hx-on:click="closeModal()" class="absolute right-2 top-2 btn btn-secondary">Close</button> 
-
-                <!-- HOT RELOAD CONTENT SWAPS HERE -->
-                <div id="modal-body"></div>             
-            </div>
-         </div>
-
-    <footer>All rights reserved @ PRINCE CEEJAY 2026</footer>
+   {% include 'globals/footer.html' %}
     
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>

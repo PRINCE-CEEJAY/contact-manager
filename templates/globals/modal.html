@@ -1,0 +1,12 @@
+ <!-- GLOBAL MODAL -->
+ <div id="modal" class="fixed inset-0 hidden bg-black/95 items-center justify-center z-1000 w-full">
+
+    <div id="modal-content" class="relative p-6 rounded-2xl transition-all duration-300 opacity-95 scale-95 text-white">
+
+        <!-- CLOSE BUTTON -->
+        <button hx-on:click="closeModal()" class="absolute right-2 top-2 btn btn-secondary">Close</button> 
+
+        <!-- HOT RELOAD CONTENT SWAPS HERE -->
+        <div id="modal-body"></div>             
+    </div>
+ </div>
