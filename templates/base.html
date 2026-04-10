@@ -7,18 +7,22 @@
     <title>CONTACT MANAGER</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    {% include 'globals/navbar.html' %}
+<body class="flex flex-col">
+    <nav class="flex bg-black text-white font-bold justify-evenly items-center p-2 h-fit">
+        {% include 'globals/navbar.html' %}
+    </nav>
     <main class="flex flex-col items-center min-h-screen font-bold p-3">
-        {% block content %}      
+        {% block content %}  
+
         {% endblock %}            
-        </main>    
+    </main>    
 
         <!-- GLOBAL MODAL -->
        {% include 'globals/modal.html' %}
 
-   {% include 'globals/footer.html' %}
-    
+       <footer class="flex bg-amber-900 justify-evenly items-center p-2 h-fit">
+           {% include 'globals/footer.html' %}
+       </footer>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>

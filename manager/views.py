@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Manager
+from django.db.models import Q
 from .forms import ManagerForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -17,6 +18,18 @@ def create(request):
     contacts = Manager.objects.filter(user=request.user).order_by('-date_created')
     context = {'contacts': contacts}  
     return render(request, 'manager/contact-list.html', context) 
+
+@login_required
+def search(request):
+    query = request.GET.get('search')
+    import time
+    time.sleep(2)
+    contacts = get_list_or_404(Manager, 
+                              Q(name__icontains=query) | 
+                              Q(bio__icontains=query)
+    )
+    return render(request, 'manager/contact-list.html', {'contacts': contacts})
+
 
 @login_required
 def get_contact_form(request):
